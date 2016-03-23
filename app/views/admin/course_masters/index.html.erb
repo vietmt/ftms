@@ -4,30 +4,34 @@
     <span class="pull-right"><%= link_to t("courses.buttons.admin.create"),
       new_admin_course_master_path, class: "btn btn-success" %></span>
   </div>
-  <table class="table table-striped tbl-course">
-    <thead>
-      <tr>
-        <th class="name"><%= t "courses.table.name" %></th>
-        <th class="description"><%= t "courses.table.description" %></th>
-        <th class="action"><%= t "courses.table.action" %></th>
-      </tr>
-    </thead>
-    <% @course_masters.each do |course_master| %>
-      <tr>
-        <div id="course_master-<%= course_master.id %>">
-          <td><%= link_to course_master.name,
-            admin_course_master_path(course_master) %></td>
-          <td><%= course_master.description %></td>
-          <td>
-            <%= link_to t("courses.buttons.admin.create_course"),
-              new_admin_course_path(parent_id: course_master.id) %> &nbsp;
-            <%= link_to t("button.edit"),
-              edit_admin_course_master_path(course_master) %> &nbsp;
-            <%= link_to t("button.delete"), admin_course_master_path(course_master),
-              method: :delete, data: {confirm: t("messages.delete.confirm")} %>
-          </td>
-        </tr>
-      </div>
-    <% end %>
-  </table>
+  <div id="course_section">
+    <div class="course_record">
+      <table class="table table-striped tbl-course">
+        <thead>
+          <tr>
+            <th class="name"><%= t "courses.table.name" %></th>
+            <th class="description"><%= t "courses.table.description" %></th>
+            <th class="action"><%= t "courses.table.action" %></th>
+          </tr>
+        </thead>
+        <% @course_masters.each do |course_master| %>
+          <tr>
+            <div id="course_master-<%= course_master.id %>">
+              <td><%= link_to course_master.name,
+                admin_course_master_path(course_master) %></td>
+              <td><%= course_master.description %></td>
+              <td>
+                <%= link_to t("courses.buttons.admin.create_course"),
+                  new_admin_course_path(parent_id: course_master.id) %> &nbsp;
+                <%= link_to t("button.edit"),
+                  edit_admin_course_master_path(course_master) %> &nbsp;
+                <%= link_to t("button.delete"), admin_course_master_path(course_master),
+                  method: :delete, data: {confirm: t("messages.delete.confirm")} %>
+              </td>
+            </tr>
+          </div>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>

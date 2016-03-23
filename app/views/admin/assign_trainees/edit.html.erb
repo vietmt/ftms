@@ -1,9 +1,7 @@
-<%= render "shared/course_tab", course: @course, active_tab: Settings.tabs.trainees  %>
+<h1><%= t("users.assign_trainees") %></h1>
 
-<div id="trainees">
   <%= form_for @course, url: admin_course_assign_trainees_path, method: :patch do |f| %>
     <%= render "shared/error_messages", object: @course %>
-    <%= render "shared/form_assign", f: f, users: @trainees, course_users:
+    <%= render "shared/form_assign", f: f, users: @trainees, course_users: 
       @course.user_courses.map(&:user) %>
   <% end %>
-</div>

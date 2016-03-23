@@ -28,11 +28,9 @@
         <li role="presentation" class="<%= tab_active Settings.tabs.subjects, active_tab %>">
           <%= link_to t("courses.tabs.subjects"), admin_course_course_subjects_path(course) %></li>
         <li role="presentation" class="<%= tab_active Settings.tabs.trainees, active_tab %>">
-          <%= link_to t("courses.tabs.trainees"),
-            edit_admin_course_assign_trainees_path(course) %></li>
+          <%= link_to t("courses.tabs.trainees"), "#" %></li>
         <li role="presentation" class="<%= tab_active Settings.tabs.trainers, active_tab %>">
-          <%= link_to t("courses.tabs.trainers"),
-            edit_admin_course_assign_trainers_path(course) %></li>
+          <%= link_to t("courses.tabs.trainers"), "#" %></li>
       </ul>
 
     </div>

@@ -1,8 +1,6 @@
-<%= render "shared/course_tab", course: @course, active_tab: Settings.tabs.trainers  %>
-<div id="trainees">
-  <%= form_for @course, url: admin_course_assign_trainers_path, method: :patch do |f| %>
-    <%= render "shared/error_messages", object: @course %>
-    <%= render "shared/form_assign", f: f, users: @trainers, course_users:
-      @course.user_courses.map(&:user)%>
-  <% end %>
-</div>
+<h1><%= t "courses.buttons.admin.assigntrainer" %></h1>
+<%= form_for @course, url: admin_course_assign_trainers_path, method: :patch do |f| %>
+  <%= render "shared/error_messages", object: @course %>
+  <%= render "shared/form_assign", f: f, users: @trainers, course_users: 
+    @course.user_courses.map(&:user)%>
+<% end %>

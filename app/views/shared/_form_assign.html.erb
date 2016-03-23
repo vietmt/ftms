@@ -1,16 +1,15 @@
-<table class="table table-striped tbl-trainee">
+<table class="table table-striped">
   <thead>
     <tr>
-      <th class="no">#</th>
-      <th class="name"><%= t "courses.users.name" %></th>
-      <th class="email"><%= t "courses.users.email" %></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% users.each do |user| %>
       <%= f.fields_for :user_courses, @course.user_courses.build do |user_course_builder| %>
         <tr>
-          <td class="no">
+          <td>
             <% if course_users.include? user %>
               <%= user_course_builder.check_box :_destroy, {checked: true}, false, true %>
               <%= user_course_builder.hidden_field :user_id, value: user.id %>
@@ -20,11 +19,10 @@
               <%= user_course_builder.check_box :user_id, {checked: false}, user.id, nil %>
             <% end %>
           </td>
-          <td class="name"><%= user.name %></td>
-          <td class="email"><%= user.email %></td>
+          <td><%= user.email %></td>
         </tr>
       <% end %>
     <% end %>
-    <%= f.submit :submit, class: "btn btn-primary" %>
+    <%= f.submit :submit, class: "btn btn-primary" %> 
   </tbody>
 </table>

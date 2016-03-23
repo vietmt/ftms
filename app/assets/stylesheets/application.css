@@ -21,7 +21,6 @@
  *= require admin/subject
  *= require admin/user_subjects
  *= require admin/rank
- *= require admin/trainee
  *= require admin/evaluation_template
  *= require bootstrap-datepicker3
  */
