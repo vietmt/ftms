@@ -6,7 +6,7 @@ class UserTask < ActiveRecord::Base
       :user_id, :user_subject_id, :task_id
   ]
 
-  tracked only: [:create],
+  tracked only: [:destroy],
     owner: ->(controller, model) {controller.current_user},
     recipient: ->(controller, model) {model.user_subject.course_subject}
 

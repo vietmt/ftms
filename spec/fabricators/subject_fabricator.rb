@@ -1,7 +1,7 @@
 Fabricator(:subject) do
-  name {sequence(:name) {|i| "Subject#{i}"}}
+  name {Faker::Commerce.product_name}
   description {Faker::Lorem.sentence}
-  content {Faker::Lorem.sentence}
+  content {Faker::Lorem.paragraphs}
   during_time {Faker::Number.between(1, 10)}
 
   after_create do |subject|

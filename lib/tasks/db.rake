@@ -26,6 +26,20 @@ namespace :db do
       Fabricate :subject
     end
 
+    puts "Creating Course Subject"
+    Course.each do |course|
+      Subject.order("RAND()").first(5).each do |subject|
+        Fabricate :course_subject, course: course, subject: subject
+      end
+    end
+
+    puts "Creating User Course"
+    Course.each do |course|
+      User.order("RAND()").first(10).each do |user|
+        Fabricate :user_course, course: course, user: user
+      end
+    end
+
     puts "Creating Evaluation Template"
     5.times do
       Fabricate :evaluation_template

@@ -9,7 +9,7 @@ class CourseSubject < ActiveRecord::Base
   after_destroy :reorder_position
   after_create :update_subject_course
 
-  tracked only: [:create, :destroy, :start_subject, :close_subject],
+  tracked only: [:destroy, :start_subject, :close_subject],
     owner: ->(controller, model) {controller.current_user},
     recipient: ->(controller, model) {model && model.course}
   ATTRIBUTES_PARAMS = [:subject_name, :subject_description, :subject_content,
